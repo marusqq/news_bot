@@ -26,7 +26,7 @@ def get_news_from_soup(soup):
     news_articles = soup.find_all(class_="newsline article")
     for news in news_articles:
         news_article_dict = {}
-        news_article_dict['title'] = 'Hltv News'
+        news_article_dict['title'] = 'hltv.org'
         news_article_dict['text'] = news.find(class_='newstext').text
         news_link = news['href']
         news_article_dict['news_id'] = 'hltv-' + news_link.split('/')[2]
