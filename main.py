@@ -1,10 +1,27 @@
 import os
 import utils
+import time
+from datetime import datetime
 from hltv import get_news_from_soup, get_main_page_soup
 
 news_dir = os.getcwd() + '/news/'
 
 HLTV_NEWS = True
+DELFI_SPORT_NEWS = False
+
+now = datetime.now()
+
+# scrape each ~15 mins at daytime
+if now.hour >= 8 and now.hour < 23:
+    time.sleep(
+        utils.get_random_int(1, 5)
+    )
+
+# scrape each ~2 hours at nightime 
+else:
+    time.sleep(
+        120 + utils.get_random_int()
+    )
 
 if HLTV_NEWS:
 

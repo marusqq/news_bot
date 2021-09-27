@@ -1,4 +1,5 @@
 import requests
+import random
 
 def send_phone_notification(values):
     '''input parameters:
@@ -17,6 +18,9 @@ def send_phone_notification(values):
     url = "https://maker.ifttt.com/trigger/send_notification/with/key/" + api_key
 
     return requests.post(url, data=ifttt_values)
+
+def get_random_int(min=1, max=20):
+    return random.randint(min, max)
 
 def line_prepender(filename, line):
     with open(filename, 'r+') as f:
